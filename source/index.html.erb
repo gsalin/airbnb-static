@@ -1,10 +1,227 @@
 ---
 title: Le Wagon Middleman boilerplate
 ---
+ <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('images/background.jpg');">
+      <div class="banner-content">
+        <h1>WELCOME HOME</h1>
+        <p>Rent unique places to stay from local hosts in 190+ countries.</p>
+        <a class="btn btn-primary btn-lg">How it works</a>
+      </div>
+    </div>
 
-<div class="welcome text-center padded">
-  <h1>Welcome to Middleman</h1>
-  <p class="doc">
-    <%= link_to "Read Online Documentation", "http://middlemanapp.com/" %>
-  </p>
-</div>
+
+    <div class="container">
+      <div class="text-center icons">
+        <div class="row">
+          <div class="col-xs-12 col-md-3">
+            <img src="images/globe.png" alt="">
+            <h2>Earth is your world</h2>
+            <p>Let's visit countries with us</p>
+          </div>
+          <div class="col-xs-12 col-md-3">
+            <img src="images/dollar.png" alt="">
+            <h2>The less expensive hotel is your home everywhere</h2>
+            <p>Online and secured payement</p>
+          </div>
+          <div class="col-xs-12 col-md-3">
+            <img src="images/beer.png" alt="">
+            <h2>Meet foreign people</h2>
+            <p>Your next drink is with someone you don't know</p>
+          </div>
+          <div class="col-xs-12 col-md-3">
+            <img src="images/heart.png" alt="">
+            <h2>You'll love to travel</h2>
+            <p>Please like our services</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="text-center padded" id="newsletter">
+      <h2>Get news from us</h2>
+      <p>Leave us your mail and get news from us</p>
+      <form class="form-inline">
+        <input type="email" placeholder="bob@gmail.com" class="form-control">
+        <input type="submit" value="Subscribe" class="btn btn-primary btn-bordered btn-bordered-primary">
+      </form>
+    </div>
+
+    <div id="map" style="width: 100%; height: 400px;"></div>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <script type="text/javascript">
+    var myLatlng = new google.maps.LatLng(48.8655909, 2.378983);
+
+    var myOptions = {
+      zoom: 14,
+      center: myLatlng,
+      scrollwheel: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: [
+    {
+        "stylers": [
+            {
+                "hue": "#bbff00"
+            },
+            {
+                "weight": 0.5
+            },
+            {
+                "gamma": 0.5
+            }
+        ]
+    },
+    {
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural",
+        "stylers": [
+            {
+                "color": "#a4cc48"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "visibility": "on"
+            },
+            {
+                "weight": 1
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "gamma": 1.14
+            },
+            {
+                "saturation": -18
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway.controlled_access",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "saturation": 30
+            },
+            {
+                "gamma": 0.76
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "weight": 0.4
+            },
+            {
+                "lightness": -8
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "stylers": [
+            {
+                "color": "#4aaecc"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "stylers": [
+            {
+                "color": "#718e32"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.business",
+        "stylers": [
+            {
+                "saturation": 68
+            },
+            {
+                "lightness": -61
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.locality",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "weight": 2.7
+            },
+            {
+                "color": "#f4f9e8"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway.controlled_access",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "weight": 1.5
+            },
+            {
+                "color": "#e53013"
+            },
+            {
+                "saturation": -42
+            },
+            {
+                "lightness": 28
+            }
+        ]
+    }
+] // TODO: replace [] by array from https://snazzymaps.com/
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), myOptions);
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: "You are here!"
+    });
+    </script>
+
+    <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

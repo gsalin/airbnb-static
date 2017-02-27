@@ -1,0 +1,13 @@
+
+<% members = %w(anne romain seb) %>
+
+<div class="container">
+  <ul class="list-inline">
+    <% members.each do |member| %>
+      <li>
+        <image_tag "<%= member %>.jpg", class: "img-circle" >
+        <h3 class="text-center"> <%= member %> </h3>
+      </li>
+    <% end %>
+  </ul>
+</div>
