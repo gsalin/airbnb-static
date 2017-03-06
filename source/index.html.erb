@@ -10,7 +10,7 @@ title: Le Wagon Middleman boilerplate
     </div>
 
 
-    <div class="container">
+    <div class="container" id="home-icons">
       <div class="text-center icons">
         <div class="row">
           <div class="col-xs-12 col-md-3">
@@ -20,7 +20,7 @@ title: Le Wagon Middleman boilerplate
           </div>
           <div class="col-xs-12 col-md-3">
             <img src="images/dollar.png" alt="">
-            <h2>The less expensive hotel is your home everywhere</h2>
+            <h2>Best price</h2>
             <p>Online and secured payement</p>
           </div>
           <div class="col-xs-12 col-md-3">
@@ -38,6 +38,30 @@ title: Le Wagon Middleman boilerplate
     </div>
 
 
+  <div class="container" id="home-card-container">
+    <div class="row">
+
+      <% data.flats.each do |owner, flat| %>
+
+      <div class="col-xs-12 col-sm-4" id="home-page-card-padding">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path flat[:picture]  %>');">
+        <!-- Ci dessu on appel dans le hash flats, la syntaxe flat[:owner_picture] pourrait aussi s'ecrire flat.owner_picture -->
+          <div class="card-category"><%= flat.city %></div>
+            <div class="card-description">
+              <h2> <%= flat.name %> </h2>
+              <p> <%= flat.summary %></p>
+            </div>
+            <%= image_tag flat.owner_picture, class: "card-user avatar" %>
+            <a class="card-link" href="#" ></a>
+        </div>
+      </div>
+
+      <% end %>
+
+
+    </div>
+  </div>
+
      <div class="text-center padded" id="newsletter">
       <h2>Get news from us</h2>
       <p>Leave us your mail and get news from us</p>
@@ -49,179 +73,180 @@ title: Le Wagon Middleman boilerplate
 
     <div id="map" style="width: 100%; height: 400px;"></div>
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
-    <script type="text/javascript">
-    var myLatlng = new google.maps.LatLng(48.8655909, 2.378983);
+      <script type="text/javascript">
+      var myLatlng = new google.maps.LatLng(48.8655909, 2.378983);
 
-    var myOptions = {
-      zoom: 14,
-      center: myLatlng,
-      scrollwheel: false,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      styles: [
-    {
-        "stylers": [
-            {
-                "hue": "#bbff00"
-            },
-            {
-                "weight": 0.5
-            },
-            {
-                "gamma": 0.5
-            }
-        ]
-    },
-    {
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape.natural",
-        "stylers": [
-            {
-                "color": "#a4cc48"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#ffffff"
-            },
-            {
-                "visibility": "on"
-            },
-            {
-                "weight": 1
-            }
-        ]
-    },
-    {
-        "featureType": "administrative",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "on"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            },
-            {
-                "gamma": 1.14
-            },
-            {
-                "saturation": -18
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway.controlled_access",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "saturation": 30
-            },
-            {
-                "gamma": 0.76
-            }
-        ]
-    },
-    {
-        "featureType": "road.local",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            },
-            {
-                "weight": 0.4
-            },
-            {
-                "lightness": -8
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "stylers": [
-            {
-                "color": "#4aaecc"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape.man_made",
-        "stylers": [
-            {
-                "color": "#718e32"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.business",
-        "stylers": [
-            {
-                "saturation": 68
-            },
-            {
-                "lightness": -61
-            }
-        ]
-    },
-    {
-        "featureType": "administrative.locality",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "weight": 2.7
-            },
-            {
-                "color": "#f4f9e8"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway.controlled_access",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "weight": 1.5
-            },
-            {
-                "color": "#e53013"
-            },
-            {
-                "saturation": -42
-            },
-            {
-                "lightness": 28
-            }
-        ]
-    }
-] // TODO: replace [] by array from https://snazzymaps.com/
-    };
+      var myOptions = {
+        zoom: 14,
+        center: myLatlng,
+        scrollwheel: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles: [
+      {
+          "stylers": [
+              {
+                  "hue": "#bbff00"
+              },
+              {
+                  "weight": 0.5
+              },
+              {
+                  "gamma": 0.5
+              }
+          ]
+      },
+      {
+          "elementType": "labels",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "landscape.natural",
+          "stylers": [
+              {
+                  "color": "#a4cc48"
+              }
+          ]
+      },
+      {
+          "featureType": "road",
+          "elementType": "geometry",
+          "stylers": [
+              {
+                  "color": "#ffffff"
+              },
+              {
+                  "visibility": "on"
+              },
+              {
+                  "weight": 1
+              }
+          ]
+      },
+      {
+          "featureType": "administrative",
+          "elementType": "labels",
+          "stylers": [
+              {
+                  "visibility": "on"
+              }
+          ]
+      },
+      {
+          "featureType": "road.highway",
+          "elementType": "labels",
+          "stylers": [
+              {
+                  "visibility": "simplified"
+              },
+              {
+                  "gamma": 1.14
+              },
+              {
+                  "saturation": -18
+              }
+          ]
+      },
+      {
+          "featureType": "road.highway.controlled_access",
+          "elementType": "labels",
+          "stylers": [
+              {
+                  "saturation": 30
+              },
+              {
+                  "gamma": 0.76
+              }
+          ]
+      },
+      {
+          "featureType": "road.local",
+          "stylers": [
+              {
+                  "visibility": "simplified"
+              },
+              {
+                  "weight": 0.4
+              },
+              {
+                  "lightness": -8
+              }
+          ]
+      },
+      {
+          "featureType": "water",
+          "stylers": [
+              {
+                  "color": "#4aaecc"
+              }
+          ]
+      },
+      {
+          "featureType": "landscape.man_made",
+          "stylers": [
+              {
+                  "color": "#718e32"
+              }
+          ]
+      },
+      {
+          "featureType": "poi.business",
+          "stylers": [
+              {
+                  "saturation": 68
+              },
+              {
+                  "lightness": -61
+              }
+          ]
+      },
+      {
+          "featureType": "administrative.locality",
+          "elementType": "labels.text.stroke",
+          "stylers": [
+              {
+                  "weight": 2.7
+              },
+              {
+                  "color": "#f4f9e8"
+              }
+          ]
+      },
+      {
+          "featureType": "road.highway.controlled_access",
+          "elementType": "geometry.stroke",
+          "stylers": [
+              {
+                  "weight": 1.5
+              },
+              {
+                  "color": "#e53013"
+              },
+              {
+                  "saturation": -42
+              },
+              {
+                  "lightness": 28
+              }
+          ]
+      }
+  ] // TODO: replace [] by array from https://snazzymaps.com/
+      };
 
-    var map = new google.maps.Map(document.getElementById('map'), myOptions);
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: "You are here!"
-    });
-    </script>
+      var map = new google.maps.Map(document.getElementById('map'), myOptions);
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: "You are here!"
+      });
+      </script>
 
-    <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+      <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    </div>

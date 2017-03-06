@@ -1,0 +1,36 @@
+Romain:
+    name: Romain
+    city: Paris
+    owner_picture: romain.jpg
+    picture: card-paris.jpg
+    summary: chrarming flat in Eiffel Tower
+Seb:
+    name: Seb
+    city: London
+    owner_picture: seb.jpg
+    picture: card-london.jpeg
+    summary: chrarming flat in Picadilly
+Jose:
+    name: Jose
+    city: Paris
+    owner_picture: jose.jpeg
+    picture: card-paris.jpg
+    summary: chrarming flat in Eiffel Tower
+Henri:
+    name: Henri
+    city: London
+    owner_picture: seb.jpg
+    picture: card-london.jpeg
+    summary: chrarming flat in Picadilly
+fifi:
+    name: Jose
+    city: Paris
+    owner_picture: romain.jpg
+    picture: card-paris.jpg
+    summary: chrarming flat in Eiffel Tower
+carlos:
+    name: Henri
+    city: London
+    owner_picture: jose.jpeg
+    picture: card-london.jpeg
+    summary: chrarming flat in Picadilly
